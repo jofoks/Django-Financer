@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VF Login</title>
+    <link rel="shortcut icon" href="">
+    <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}" >
+</head>
+<body>
+    <div class="container">
+        <h1 class="logo">Visual Financials</h1>
+        <p class="subtitle">Get a grip on your financials</p>
+        <div class="subframe">
+            <div class="line"></div>
+                <p class="prefix">sign in here</p>
+            <div class="line"></div>
+        </div>
+        <div class="signup-form">
+            <form name='login-form'>
+                <input type="text" class="field-input" autofocus="true" maxlength="256" name="Username" placeholder="USERNAME" required='true'>
+                <input type="password" class="field-input" maxlength="256" name="Password" placeholder="PASSWORD" required='true'>
+                <input type="submit" class="button-input" value="login" data-wait="Please wait...">
+            </form>
+        </div>
+    </div>
+</body>
+
+
+
+
+<!-- 
+
+
+<body>
+    <h1 class='logo'>Visual Financials</h1>
+    <div>
+        <h2 class='subtitle'>Get a grip on your financials</h2>
+    </div>
+    <div>
+        <h3 class='field'>Sign in here</h3>
+    </div>
+    <div>
+        <form name='login-form'>
+            <input type="text" class="field-input" autofocus="true" maxlength="256" name="Username" placeholder="Username" required='true'>
+            <input type="password" class="field-input" maxlength="256" name="Password" placeholder="Password" required='true'>
+            <br>
+            <input type="submit" class="button-input" value="login" data-wait="Please wait...">
+        </form>
+    </div>
+</body>
+</html> -->
