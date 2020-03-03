@@ -5,7 +5,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'assets'),
+    os.path.join(BASE_DIR, 'static'),
 )
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'bankAccounts',
     'address',
     'envelope',
@@ -106,6 +107,10 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+LOGIN_REDIRECT_URL = 'home'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 # Static files (CSS, JavaScript, Images)

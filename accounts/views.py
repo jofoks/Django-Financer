@@ -6,20 +6,17 @@ def register_view(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
+            form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'You did it {username}!')
+            return redirect('home')
     else:
         form =UserCreationForm()
     context = {'form':form}
     return render(request, 'accounts/register.html', context)
 
-def login_view(request):
-    if request.method =='POST':
-        form = AuthenticationForm(data=request.POST)
-        if form.is_valid():
-            return redirect('admin')
-    else:
-        form = AuthenticationForm()
-    return render(request, 'accounts/login.html', {'form':form})
-
-print(os.getcwd())
+def home_view(request):
+    if request.user.is_authenticated:
+        context = {'user'}
+        return render(request, 'home.html')
+    return redirect('login')

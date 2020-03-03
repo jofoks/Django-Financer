@@ -2,8 +2,9 @@ ABOUT:
 This is a website based personal financial tool. It is built on a website firstly to build some experience buidling websites and secondly for some of its features. This website will give an oversight over the personal finance essentials to get a good grasp on your current finacial situation.
 
 FEATURES:   
-    - Web based UI
     - Python 3
+    - Django
+    - Crispy
     - ING CSV file reader/parser
     - SQLiteDB and tools
     - Charts and Graphs/ visualisations
@@ -37,6 +38,7 @@ VENV Modules: {bin, inlude, lib}
     - Django
     - Django pylint
     - Python3
+    - Crispy
 
 APPS:   
     - Transactions  ::TESTED::

@@ -1,19 +1,31 @@
+{% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VF Register</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static "css/login.css" %}" >
 </head>
 <body>
-    <h1>Sign Up!</h1>
-    <form class="site-form" action="index.html" method="POST">
-        {% csrf_token %}
-        <fieldset class="field">
-            <legend class="legend">Join Today</legend>
-        </fieldset>
-            {{form}}
-        <input type="submit" value="Signup">
-    </form>
+    <div class="container">
+        <h1 class="logo">Visual Financials</h1>
+        <p class="subtitle">Get a grip on your financials</p>
+        <div class="subframe">
+            <div class="line"></div>
+                <p class="prefix">register here</p>
+            <div class="line"></div>
+        </div>
+        <div class="signup-form">
+            <form name='login-form' method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input type="submit" class="button-input" value="login" data-wait="Please wait...">
+            </form>
+        </div>
+    </div>
 </body>
 </html>
+
