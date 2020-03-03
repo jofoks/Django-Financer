@@ -8,8 +8,8 @@ def register_view(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, f'You did it {username}!')
-            return redirect('home')
+            messages.success(request, f'Your account has been created, you can now log in!')
+            return redirect('login')
     else:
         form =UserCreationForm()
     context = {'form':form}

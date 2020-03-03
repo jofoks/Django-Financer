@@ -1,14 +1,9 @@
 import os
-# try:
-#     os.environ['DJANGO_SETTINGS_MODULE'] = 'src.DJ_Financer.settings'
-#     print('\n\nnew environ\n\n')
-# except: pass
 from django.db import models
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
-# from django.contrib.contenttypes.models import ContentType
-# for c in ContentType.objects.all():
-#     print(c.app_label, c.model)
+from django.contrib.auth.models import User
+
 
 STATE_CHOICES = (
     ('AL', ('Alabama')),
@@ -73,7 +68,7 @@ class Contact(models.Model):
                                     limit_choices_to= limit)
     object_id       = models.PositiveIntegerField(blank=True)
     account         = GenericForeignKey('content_type', 'object_id')
-
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.first_name + ' ' + self.last_name

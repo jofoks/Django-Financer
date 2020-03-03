@@ -1,5 +1,6 @@
 from django.test import TestCase
 from .models import KeyWord, Category
+from django.contrib.auth.models import User
 
 class KeyWordTestCase(TestCase):
     def setUp(self):
@@ -20,18 +21,19 @@ class KeyWordTestCase(TestCase):
 
 class CategoryTestCase(TestCase):
     def setUp(self):
+        self.user = User.objects.create_user(username='jacob', email='jacob@…', password='top_secret')
         self.kw_one = KeyWord.objects.create(name= 'kywrd: 1' )
         self.kw_two = KeyWord.objects.create(name= 'kywrd: 2' )
         self.kw_three = KeyWord.objects.create(name= 'kywrd: 3' )
         self.kw_four = KeyWord.objects.create(name= 'kywrd: 4' )
         self.kw_five = KeyWord.objects.create(name= 'kywrd: 5' )
 
-        self.single = Category.objects.create(name= 'B Dummt')
+        self.single = Category.objects.create(name= 'B Dummt', owner = self.user )
         self.single.keywords.add(self.kw_three)
-        self.double = Category.objects.create(name= 'C Dummt')
+        self.double = Category.objects.create(name= 'C Dummt', owner = self.user )
         self.double.keywords.add(self.kw_three)
         self.double.keywords.add(self.kw_four)
-        self.many = Category.objects.create(name= 'A Dummy')
+        self.many = Category.objects.create(name= 'A Dummy', owner = self.user )
         self.many.keywords.add(self.kw_one)
         self.many.keywords.add(self.kw_two)
         self.many.keywords.add(self.kw_three)

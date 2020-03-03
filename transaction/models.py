@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 TRANSACTION_TYPES =(
     (1,'Incasso'),
@@ -21,6 +22,7 @@ class Transaction(models.Model):
     name            = models.CharField(max_length=150)
     description     = models.CharField(max_length=1000, blank=True)
     category        = models.CharField(max_length=150, blank=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
     class Meta: 
         ordering = ['-date']

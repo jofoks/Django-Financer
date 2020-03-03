@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class KeyWord(models.Model):
     name        = models.CharField(max_length=150) 
@@ -13,6 +14,7 @@ class KeyWord(models.Model):
 class Category(models.Model):
     name        = models.CharField(max_length=150)
     keywords    = models.ManyToManyField(KeyWord)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
     class Meta:
         ordering = ['name']

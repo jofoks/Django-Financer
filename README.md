@@ -120,30 +120,7 @@ This is a website based personal financial tool. It is built on a website firstl
             
 
 ### TODOS:  
-#### GENERAL:    
-* create user home interface
-* create widgets
-* csv uploader
-
-#### BY PAGES:   
-**LOGIN:**  
-* prompt this page if user is not logged in on any url
-* create an admin url that routs you to the home page (or the requested page)
-
-#### HOME:   
-* Sketch the layout
-* preset the areas information will come
-* build a base template for the overlay on every page
-* Create pulldown menu's and top options in base:
-    * Views
-    * Settings
-    * Logout -> login
-    * Home
-
-(for now)
-        
-
-
-
-                                            
-
+* Create a form? and/or view
+* Create website home post template (alternating right and left)
+* add an Update and Detail view/url for all the apps
+* Do some style synergizing
