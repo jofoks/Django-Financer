@@ -113,7 +113,6 @@ This is a website based personal financial tool. It is built on a website firstl
 |    #website.com/                    | Reel                   | Future Feature: a representative page on what this website |has to offer
 |    website.com/login                | Login                  | Initial prompted page to authorize access to all urls stated |below
 |    website.com/home                 | overview               | Oversight page over highlight information about all |catagories
-
 |    website.com/view/visuals         | Graphs                 | Displaying a number of interactive graphs|
 |    website.com/view/transactions    | Totals                 | An overview of the complete database of transactions|
 |    website.com/view/envelopes       | Distributions          | A hub viewing the preset distribution of the monthly cashflow|
