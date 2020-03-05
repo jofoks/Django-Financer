@@ -131,7 +131,13 @@
     line-height: 26px;
     text-align: center;
   }
-  
+.mainbox {
+  border: 1px solid gainsboro;
+  border-bottom: 4px solid gainsboro;
+  border-right: 4px solid gainsboro;
+  padding:16px;
+}
+
   .divider {
     height: 1px;
     background-color: #eee;
@@ -173,6 +179,7 @@
     max-width: 1140px;
     margin-right: auto;
     margin-left: auto;
+    margin-top: 100px;
   }
   
   .paragraph-tiny {

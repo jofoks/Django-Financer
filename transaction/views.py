@@ -1,6 +1,7 @@
 from .models import Transaction
 from django import forms
 from django.template.loader import render_to_string
+from django.shortcuts import render
 
 def transaction_widget(request):
     total_count = Transaction.objects.filter(owner=request.user).count()
@@ -16,4 +17,5 @@ def transaction_widget(request):
         'text'          : text
     }
 
-    return render_to_string('transaction/transaction_widget.html', content)
+    return render(request, 'transaction/transaction_widget.html', content)
+

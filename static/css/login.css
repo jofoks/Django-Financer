@@ -27,6 +27,10 @@ h2 {
   font-size: 20px;
   font-weight: lighter;
 }
+
+.main-box {
+  margin-top: 100px;
+}
   
 .container {
     margin-left: auto;

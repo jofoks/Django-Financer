@@ -1,5 +1,17 @@
 # Django Personal Financer
 
+### Login
+![](static/img/login_reel.png)
+fully functioning and secure login
+
+### Register
+![](static/img/register_reel.png)
+Creates an account with completely personal information storage
+
+### Homepage
+![](static/img/homepage_reel.png)
+Work in progress. This will be the main hub to oversee your financial data and analytics
+
 ### ABOUT:  
 This is a website based personal financial tool. It is built on a website firstly to build some experience buidling websites and secondly for some of its features. This website will give an oversight over the personal finance essentials to get a good grasp on your current finacial situation.
 
