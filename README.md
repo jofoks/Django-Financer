@@ -44,8 +44,11 @@ This is a website based personal financial tool. It is built on a website firstl
 To get a firm understanding on your financial situation, to recognize spending patterns and to be timely and integrous about debts.
 
 ### MODULES:
+* django-address      0.2.1  
+* django-crispy-forms 1.8.1  
 
 ## DOCUMENTATION
+skip this if you're not me, this is just for my own sanity
 ***
 
 ### VENV Modules: {bin, inlude, lib}    
