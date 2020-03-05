@@ -41,7 +41,7 @@ This is a website based personal financial tool. It is built on a website firstl
 * Month's transactions oversight
 
 ### PURPOSE:    
-    To get a firm understanding on your financial situation, to recognize spending patterns and to be timely and integrous about debts.
+To get a firm understanding on your financial situation, to recognize spending patterns and to be timely and integrous about debts.
 
 ### MODULES:
 
