@@ -1,46 +1,36 @@
-{% load static %}
-{% load crispy_forms_tags %}
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>VF Login</title>
-        <link rel="shortcut icon" href="">
-        <link rel="stylesheet" type="text/css" href="{% static "css/login.css" %}" >
-    </head>
-    <body>
-        <div class="container">
-            <h1 class="logo">Visual Financials</h1>
-            <h2 class="subtitle" id="sub-logo">Get a grip on your financials</h2>
-            <div class="subframe">
-                <div class="line"></div>
-                    <p class="prefix">sign in here</p>
-                <div class="line"></div>
-            </div>
-            <div class="signup-form">
-                <form name='login-form' method="POST">
+{% extends "accounts/base.html" %}
 
-                    {% csrf_token %}
-                    {{ form|crispy }}
-                    <!-- <input class="input-block-level" type="text" name="user" value="" id="email" placeholder="Username">
-                    <input class="input-block-level" type="password" name="password" value="" id="username" placeholder="Password"> -->
-                    <button class="button-input" type="submit">Login</button>
-
-                    {% if messages %}
-                    <ul class='form-errors'>
-                        {% for message in messages %}
-                            <li>{{ message }}</li>
-                        {% endfor %}
-                    </ul>
-                    {% endif %}
-                </form>
-            </div>
-            <div class="footer">
-                <small class="text-muted">
-                    Need An Account? <a class="ml-2" href="{% url 'register' %}">Sign Up Now</a>
-                </small>
-            </div>
-        </div>
-    </body>
-</html>
+{% block content %}
+<div class="login-container">
+    <div class="error-wrap">
+        {% if form.errors %}
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+                <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <form method="post" action="{% url 'login' %}">
+        <div class="login-wrap">
+            {% csrf_token %}
+            <table class="login-items">
+                <tr>
+                    <td>{{ form.username }}</td>
+                </tr>
+                <tr>
+                    <td oninput=" {document.getElementById('btn-login').classList.add('show');} ">{{ form.password }}</td>
+                </tr>
+            </table>
+            <button class="hide" id="btn-login"type="submit"></button>
+        </form>
+    </div>
+</div>
+{% endblock %}

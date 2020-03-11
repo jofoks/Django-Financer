@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib import admin
 
 class KeyWord(models.Model):
     name        = models.CharField(max_length=150) 
@@ -22,3 +23,5 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+CATEGORY_CHOICES = ( (str(num),c.name) for num, c in enumerate(Category.objects.all()))

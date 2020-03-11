@@ -2,17 +2,17 @@ from django.db import models
 from django.contrib.auth.models import User
 
 TRANSACTION_TYPES =(
-    (1,'Incasso'),
-    (2,'Batch payment'),
-    (3,'Batch payment'),
-    (4,'Branch withdrawal'),
-    (5,'Cash machine'),
-    (6,'Deposit'),
-    (7,'Online Banking'),
-    (8,'Payment terminal'),
-    (9,'SEPA direct debit'),
-    (10,'Sundries'),
-    (11,'Transfer'),
+    ('1','Incasso'),
+    ('2','Batch payment'),
+    ('3','Batch payment'),
+    ('4','Branch withdrawal'),
+    ('5','Cash machine'),
+    ('6','Deposit'),
+    ('7','Online Banking'),
+    ('8','Payment terminal'),
+    ('9','SEPA direct debit'),
+    ('10','Sundries'),
+    ('11','Transfer'),
 )
 
 class Transaction(models.Model):
@@ -26,3 +26,8 @@ class Transaction(models.Model):
 
     class Meta: 
         ordering = ['-date']
+
+class CsvFile(models.Model):
+    csv = models.FileField(upload_to='transaction/cache')
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+

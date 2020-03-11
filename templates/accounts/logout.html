@@ -5,10 +5,14 @@ VF Logout
 {%endblock%}
 
 {%block content%}
-<h1>You have been logged out</h1>
-<div class="border-top pt-3">
-    <h2 class="text-muted">
-        <a href="{% url 'login' %}">Log In Again</a>
-    </h2>
+<div class="login-wrap">
+    <table class='login-items'>
+        <tr>
+            <td><h2 class='link-prefix'>You have been logged out</h2></td>
+        </tr>
+        <tr>
+            <td><a class='redirect-link small' href="{% url 'login' %}">Log In Again</a></td>
+        </tr>
+    </table>
 </div>
 {%endblock%}

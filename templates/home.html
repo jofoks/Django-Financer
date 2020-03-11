@@ -1,35 +1,45 @@
 {% extends "base.html" %}
 
-{% block title %}User Page{% endblock %}
+{% block title %}{{ user.username}}'s Spae{% endblock %}
 
 {% block content %}
-<div class="section cc-store-home-wrap">
-  <div class="container">
-    <div class="motto-wrap"></div>
-    <div class="home-content-wrap">
-      <div class="w-layout-grid about-grid">
-        <div id="w-node-boxright">
-          <div class="home-section-wrap">
-            <div class="label cc-light">About</div>
-            <h2 class="section-heading">Who we are</h2>
-            <p class="paragraph-light">Nulla vel sodales tellus, quis condimentum enim. Nunc porttitor venenatis feugiat. Etiam quis faucibus erat, non accumsan leo. Aliquam erat volutpat. Vestibulum ac faucibus eros. Cras ullamcorper gravida tellus ut consequat.</p>
+<figure class="circle"></figure>
+<div class="home-wrap">
+    <div class="welcome-box">
+      <h1 class="title-text">Welcome<br>back, {{ user.username }}!</h1>
+      <p class="sub-text">You have # outstanding<br>transactions. Let's do this!</p>
+        <div class="dropdown">
+          <button onclick="dropMenu(), toggleText(), toggleSpinList()" id="spin-btn-list">+</button>
+          <button class="dropbtn body-text" id="drop-button" onclick="dropMenu(), toggleText(), toggleSpinList()">Show transactions</button>
+          <div class="dropdown-content body-text" id="myDropdown">
+            <a class="body-text" href="#">- Link 1</a>
+            <a class="body-text" href="#">- Link 2</a>
+            <a class="body-text" href="#">- Link 3</a>
           </div>
-          <a href="/about" class="button w-inline-block">
-            <div>Learn More</div>
-          </a>
-        </div><img src="images/placeholder-3.svg" id="w-node-imageholderright" alt=""></div>
-      <div class="w-layout-grid about-grid cc-about-2">
-        <div id="w-node-boxleft">
-          <div class="home-section-wrap">
-            <div class="label cc-light">Team</div>
-            <h2 class="section-heading">What we do</h2>
-            <p class="paragraph-light">Nulla vel sodales tellus, quis condimentum enim. Nunc porttitor venenatis feugiat. Etiam quis faucibus erat, non accumsan leo. Aliquam erat volutpat. Vestibulum ac faucibus eros. Cras ullamcorper gravida tellus ut consequat.</p>
-          </div>
-          <a href="/team" class="button w-inline-block">
-            <div>Learn More</div>
-          </a>
-        </div><img src="images/placeholder-1.svg" id="w-node-imageholderleft alt=""></div>
+        </div> 
     </div>
-  </div>
+    <div class="home-trans-box">
+
+      <table class="body-text b trans-table">
+        <tr class="sub-text b">
+          <th>Recent Transactions</th>
+          <th colspan="2">{{ date }}</th>
+        </tr>
+
+        <tr class="sub-text b"><th><br></th></tr>
+
+        <tr onclick="toggleSpinTable(), toggleDisplay(1)"></tr>
+          <td>Albert Hein</th>
+          <td>$ 3.78</th>
+          <td><button type="button" onclick="toggleSpinTable(), toggleDisplay(1)" id="spin-btn-table">+</button></td>
+        </tr>
+
+        <tr id="drop-display-1" class="hide small">
+          <td>date ####</td>
+          <td>name of something</td>
+        </tr>
+      </table>
+    </div>
 </div>
+<a id="btn-upload" type="submit" href="{% url 'home' %}"></a>
 {% endblock %}

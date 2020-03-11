@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Test Page{% endblock %}
+
+{% block content %}
+<div class="w-layout-grid about-grid mainbox">
+    <div id="w-node-boxright">
+        <div class="home-section-wrap">
+            <div class="label cc-light">{{ total_count }}</div>
+            <h2 class="section-heading">Who we are</h2>
+            <p class="paragraph-light">Nulla vel sodales tellus, quis condimentum enim. Nunc porttitor venenatis feugiat. Etiam quis faucibus erat, non accumsan leo. Aliquam erat volutpat. Vestibulum ac faucibus eros. Cras ullamcorper gravida tellus ut consequat.</p>
+        </div>
+        <a class="button fit-content" method='POST'>
+            <div>Save</div>
+        </a>
+    </div><img src="images/placeholder-3.svg" id="w-node-imageholderright" alt="">
+</div>
+{% endblock %}

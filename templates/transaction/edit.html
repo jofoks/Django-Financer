@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Test Page{% endblock %}
+
+{% block content %}
+<div class="w-layout-grid about-grid mainbox">
+    <div id="w-node-boxright">
+        <div class="home-section-wrap">
+            <h1 class="form-head">Transaction</h1>
+            <form class="app-form" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+            </form>
+        </div>
+        <div class="form-group">
+            <button class="button  fit-content" type="submit">Save</button>
+        </div>
+    </div>
+</div>
+{% endblock %}
