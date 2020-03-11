@@ -2,10 +2,13 @@
 
 ### New Look!
 Check out this video!
+
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=FXEApZXXkAI
 " target="_blank"><img src="http://img.youtube.com/vi/FXEApZXXkAI/0.jpg" 
 alt="Youtube GUI video" width="240" height="180" border="10" /></a>
+
 Design by Studio Festein
+
 Backend, CSS, HTML, JS by Joram Millenaar
 
 ### ABOUT:  
