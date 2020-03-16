@@ -12,8 +12,8 @@ function dropMenu() {
   document.getElementById('myDropdown').classList.toggle('show');
   }
 
-function toggleSpinTable() {
-  document.getElementById('spin-btn-table').classList.toggle('spin');
+function toggleSpinTable(pos) {
+  document.getElementById('spin_id_'+pos).classList.toggle('spin');
   }
 
 function toggleSpinList() {
@@ -21,5 +21,50 @@ function toggleSpinList() {
   }
 
 function toggleDisplay(pos) {
-  document.getElementById('drop-display-'+pos).classList.toggle('show');
+  console.log(pos)
+  document.getElementById('drop_id_'+pos).classList.toggle('show-table');
   }
+
+function scream(event) {
+  event.preventDefault()
+  console.log('SCREAMING')
+}
+
+
+// ---------------------------------------------- //
+
+
+
+
+function dropZoneHandler(ev) {
+  var dropzone = document.getElementById('dropzone')
+
+  dropzone.ondrop = function(ev) {
+    ev.preventDefault();
+    this.className = 'circle';
+    var files = ev.dataTransfer.files;
+    $.ajax({
+      type: "POST",
+      processData: false,
+      contentType: false,
+      url: "../../static/scripts/csv_interpreter.py",
+      data: { param: files}
+      })
+      .done(function(msg){ console.log('Succes!') })
+      .fail(function(xhr, status, error) {
+        console.log('something went wrong: '+ error)
+      });
+  };
+
+  dropzone.ondragover = function() {
+    this.className = 'circle dragover';
+    return false;
+  };
+
+  dropzone.ondragleave = function() {
+    this.className = 'circle';
+    return false;
+  };
+}
+
+

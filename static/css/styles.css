@@ -1,6 +1,7 @@
 :root {
-    --color: 166, 49%;
-    --l:12%; 
+    --color: 180, 50%;
+    /* --color: 12, 89%; */
+    --l:20%; 
     
     --color-primary: hsl(var(--color),var(--l));
     --color-primary-darker: hsl(var(--color),calc(var(--l) - 5%));
@@ -9,9 +10,25 @@
     --color-secondary-darker: grey;
 }
 
+.center-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input {
+    width: 400px;
+    height: 40px;
+    display: flex;
+}
+
 h1 {
     color: var(--color-secondary);
     margin: 0;
+}
+
+a {
+    color: black;
 }
 
 p {
@@ -22,15 +39,44 @@ body {
     background-color: var(--color-secondary);
 }
 
+
 th {
     text-align: left;
+}
+
+.f-r {
+    position: absolute;
+    right: 0px;
 }
 
 .small {
     font-size: 18px;
 }
 
-#spin-btn-table {
+.bold {
+    font-weight: bold;
+}
+
+.u-line {
+    text-decoration: underline;
+}
+
+.right {
+    right: 0;
+    text-align: right;
+}
+
+.button {
+    height: 100px;
+    width: 100px;
+}
+
+.date-header {
+    position: absolute;
+    right: 30px;
+}
+
+.spin-btn-table {
     font-size: 33px;
     cursor: pointer;
     -webkit-user-select: none; 
@@ -51,7 +97,7 @@ th {
     transition: 250ms;
 }
 
-body.account {
+.bg-prim {
     background-color: var(--color-primary);
 }
 
@@ -61,6 +107,10 @@ body.account {
 
 .b tr th, .b tr td{
     color: black;
+}
+
+.prim {
+    color: var(--color-primary);
 }
 
 .w {
@@ -90,6 +140,12 @@ body.account {
     line-height: 40px;
 }
 
+.main-container {
+    margin: 80px;
+    margin-top: 30px;
+    height: 90vh;
+}
+
 .body-text {
     font-family: 'ObjectSans';
     font-weight: normal;
@@ -114,7 +170,7 @@ body.account {
 
 div.circle{
     border-radius:50%;
-    font-size: 80px;
+    font-size: 85px;
     padding:15%;
     line-height:0;
     position:relative;
@@ -124,6 +180,7 @@ div.circle{
     font-weight: 900;
     text-align: center;
     transition: 250ms;
+    text-transform: uppercase;
   }
 
 div.circle:hover {
@@ -131,14 +188,13 @@ div.circle:hover {
     transition: 250ms;
 }
 
-.circle-text {
+.circle-inner {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
     line-height: 1em;
     color: var(--color-primary);
 }
-
 .circle-wrap {
     position: absolute;
     display: flex;
@@ -146,6 +202,14 @@ div.circle:hover {
     width: 90vh;
     top: 5vh;
     right: 5vh;
+}
+
+.circle-wrap-middle {
+    display: flex;
+    height: 90vh;
+    width: 90vh;
+    margin: auto;
+    margin-top: 45px;
 }
 
 figure.circle{
@@ -163,6 +227,10 @@ figure.circle{
     left: -52.7vw;
     z-index: -10;
   }
+
+.circle.dragover {
+    background-color: pink;
+}
 
 label.login-container{
     display: none;
@@ -213,7 +281,11 @@ input:focus::placeholder {
     margin-left: 40px;
 }
 
-.registration-link {
+.error-box {
+    height: 40px;
+}
+
+.text-center {
     text-align: center;
 }
 
@@ -316,15 +388,24 @@ input:focus::placeholder {
     display: block;
     right: 0;
     margin-top: 80px;
-    width: 650px;
+    width: 680px;
+}
+
+.menu-ref {
+    padding: 20px;
+    line-height: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .trans-table {
-    position: absolute;
     right: 0;
     width: 100%;
 }
 
+.pos-fixed {
+    position: fixed;
+}
 
 .hide {
     display: none;
@@ -334,22 +415,45 @@ input:focus::placeholder {
     display: block;
 }
 
+.show-table {
+    display: table-row;
+}
+
+.disp-line {
+    padding-left: 30px;
+}
+
 .spin {
     position: relative;
     transform: rotate(45deg);
     transform-origin: center;
+
 }
 
 #btn-login {
     background: url('../img/icons/login_button@2x.png') no-repeat scroll center center / 85% auto rgba(0, 0, 0, 0);
     float: left;
-    width: 90px;
+    width: 104px;
+    height: 104px;
     border: none;
     cursor: pointer;
+    right: 60px;
+    bottom: 164px;
 }
 
 #btn-upload {
     background: url('../img/icons/upload_button@2x.png') no-repeat scroll center center / 85% auto rgba(0, 0, 0, 0);
+    right: 60px;
+    bottom: 60px;
+    width: 104px;
+    height: 104px;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+}
+
+#btn-cancel {
+    background: url('../img/icons/cancel@2x.png') no-repeat scroll center center / 85% auto rgba(0, 0, 0, 0);
     right: 60px;
     bottom: 60px;
     width: 104px;

@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{%block title%}VF Page{%endblock title%}</title>
+        <link rel="shortcut icon" href="">
+        <link rel="stylesheet" type="text/css" href="{% static "css/styles.css" %}" >
+        <script src="{% static 'js/main.js' %}"></script> 
+    </head>
+    <div class="nav-bar">
+      <div class="inner-nav">
+        <a href="{% url 'home' %}"><h1 class="logo-small ">spae.</h1></a>
+        <nav>
+          <a href="{% url 'logout' %}" class="sub-text w mg-70">logout</a>
+        </nav>
+      </div>
+    </div>
+<body class="bg-prim">
+<div class="home-content-wrap">
+    <div class="main-container">
+        <table class="body-text w trans-table">
+            <tr class="sub-text w">
+                <th class="u-line">All Transactions</th>
+                <th>{{ date }}</th>
+            </tr>
+
+            <tr class="sub-text b"><th><br></th></tr>
+            {% for trans in transactions %}
+
+            <tr onclick="toggleSpinTable('{{ forloop.counter|escapejs }}'),toggleDisplay('{{ forloop.counter|escapejs }}')">
+                <td>{{ trans.name }}</th>
+                <td>$ {{ trans.amount }}</th>
+                <td>
+                <button 
+                    type="button" 
+                    onclick="toggleSpinTable('{{ forloop.counter|escapejs }}'), toggleDisplay('{{ forloop.counter|escapejs }}')" 
+                    id = "spin_id_{{ forloop.counter }}"
+                    class="spin-btn-table w">+
+                </button>
+                </td>
+            </tr>
+
+            <tr id="drop_id_{{ forloop.counter }}" class="hide small">
+                <td>{{ trans.description }}</td>
+                <td colspan="2">
+                    <a class="menu-ref w">edit</a><br>
+                    <a class="menu-ref w">delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+  </div>
+</body>
+</html>

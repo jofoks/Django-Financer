@@ -1,0 +1,37 @@
+ {
+    "types": [
+      "transaction type", "betalingskenmerk"
+    ],       
+    "amount": [
+      "amount", "bedrag"
+    ],      
+    "date": [
+      "date", "datum"
+    ],        
+    "name": [
+      "name", "naam"
+    ],        
+    "description": [
+      "notifications", "mededelingen"
+    ], 
+    "counterparty": [
+      "counterparty", "tegenrekening"
+    ],
+    "account": [
+      "account", "rekening"
+    ],
+    "identifier" : {
+      "amount" : [
+        "debit/credit"
+      ],
+      "debit" : [
+        "debit"
+      ],
+      "credit" : [
+        "credit"
+      ],
+      "currency" : {
+          "euro" : "(EUR)"
+      }
+    }
+  }

@@ -7,12 +7,12 @@
     <title>{%block title%}VF Page{%endblock%}</title>
     <link rel="stylesheet" type="text/css" href="{% static "css/styles.css" %}" >
 </head>
-<body class="account">
+<body class="bg-prim">
     <div class="container">
-        <a class="logo" href="../account/">spae.</a>
+        <a class="logo" href="{% url 'initial' %}">spae.</a>
         <div class="circle-wrap">
             <div class="circle">
-                <div class='circle-text'>KNOW YOUR CASHFLOW</div> 
+                <div class='circle-inner'>{% block circleText %}KNOW YOUR CASHFLOW{% endblock %}</div> 
             </div>
         </div>
         {% block content %}

@@ -19,27 +19,35 @@
         </div> 
     </div>
     <div class="home-trans-box">
-
       <table class="body-text b trans-table">
         <tr class="sub-text b">
-          <th>Recent Transactions</th>
-          <th colspan="2">{{ date }}</th>
+          <th colspan="3">Recent Transactions <a class="date-header b">{{ date }}</a></th>
         </tr>
-
         <tr class="sub-text b"><th><br></th></tr>
-
-        <tr onclick="toggleSpinTable(), toggleDisplay(1)"></tr>
-          <td>Albert Hein</th>
-          <td>$ 3.78</th>
-          <td><button type="button" onclick="toggleSpinTable(), toggleDisplay(1)" id="spin-btn-table">+</button></td>
+        {% for trans in trans_snippet %}
+      <tr onclick="toggleSpinTable('{{ forloop.counter|escapejs }}'),toggleDisplay('{{ forloop.counter|escapejs }}')">
+          <td>{{ trans.name }}</td>
+          <td>$</td>
+          <td>{{ trans.amount }}</td>
+          <td>
+            <button 
+              type="button" 
+              onclick="toggleSpinTable('{{ forloop.counter|escapejs }}'), toggleDisplay('{{ forloop.counter|escapejs }}')" 
+              id = "spin_id_{{ forloop.counter }}"
+              class="spin-btn-table">+
+            </button>
+          </td>
         </tr>
-
-        <tr id="drop-display-1" class="hide small">
-          <td>date ####</td>
-          <td>name of something</td>
+        <tr id="drop_id_{{ forloop.counter }}" class="hide small">
+          <td>{{ trans.date }}</th>
+          <td colspan="2">{{ trans.kind }}</th>
+        </tr>
+        {% endfor %}
+        <tr class="right bold">
+          <td colspan="3"><a class="b bold" href="../transactions/oversight">show all</a></th>
         </tr>
       </table>
     </div>
 </div>
-<a id="btn-upload" type="submit" href="{% url 'home' %}"></a>
+<a id="btn-upload" type="submit" href='../transactions/upload' %}"></a>
 {% endblock %}

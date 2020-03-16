@@ -13,7 +13,7 @@
       <div class="inner-nav">
         <a href="{% url 'home' %}"><h1 class="logo-small">spae.</h1></a>
         <nav>
-          <a href="" class="sub-text b mg-70"">$ 143.11</a>
+          <a href="" class="sub-text b mg-70"">{% block balance %}{{balance}}{% endblock balance %}</a>
           <a href="{% url 'logout' %}" class="sub-text b mg-70">logout</a>
         </nav>
       </div>

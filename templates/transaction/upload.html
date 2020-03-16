@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{%block title%}VF Page{%endblock title%}</title>
+        <link rel="shortcut icon" href="">
+        <link rel="stylesheet" type="text/css" href="{% static "css/styles.css" %}" >
+        <script src="{% static 'js/main.js' %}"></script> 
+    </head>
+    <body class="bg-prim">
+        <form method="POST" action="{% url 'transactions:upload' %}" enctype="multipart/form-data">
+            <div class="circle-wrap-middle">
+                <div class="circle" id=dropzone>
+                    <div class='circle-inner'>
+                        <label class="prim circle-text">Drop your csv here</label>
+                        {% csrf_token %}
+                        <div class="center-box">
+                            <input type="file" name="csv" class="prim input">
+                        </div>
+                        <div class="center-box">
+                            {% if error %}
+                                <div class="error-box">
+                                    <a class="small prim">( ERROR: {{ error }} )</a>
+                                </div> 
+                            {% endif %}
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <button class="button pos-fixed" id="btn-login"type="submit"></button>
+        </form>
+        <a id="btn-cancel" type="submit" href="{% url 'home' %}"></a>
+    </body>
+</html>
+

@@ -3,6 +3,9 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from .forms import RegisterForm
 from datetime import datetime as dt
+from django.contrib.auth.decorators import login_required
+from transaction.models import Transaction
+from django.db.models import Sum
 
 def suffix(d):
     return 'th' if 11<=d<=13 else {1:'st',2:'nd',3:'rd'}.get(d%10, 'th')
@@ -25,14 +28,21 @@ def register_view(request):
         form = RegisterForm()
     return render(request, 'accounts/register.html', {'form': form})
 
+def initial_view(request):
+    return render(request, 'accounts/initial.html')
+
+@login_required
 def home_view(request):
     if request.user.is_authenticated:
+        transaction_snippet = Transaction.objects.filter(owner=request.user)[:5]
+        balance = Transaction.objects.filter(owner=request.user).aggregate(Sum('amount'))['amount__sum']
+        if not balance:
+            balance = 0.00
         context = {
             'user': request.user,
             'date' : custom_strftime('%B {S}', dt.now()),
+            'trans_snippet' : transaction_snippet,
+            'balance': "$%.2f" % round(balance, 2),
         }
         return render(request, 'home.html', context)
-    return redirect('account/')
-
-def initial_view(request):
-    return render(request, 'accounts/initial.html')
+    return redirect('login')
